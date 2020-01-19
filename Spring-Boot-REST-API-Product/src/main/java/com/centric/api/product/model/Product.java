@@ -9,7 +9,10 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 /**
  * The Model class of Product
  *
@@ -20,7 +23,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name="products")
+@Table(name="product")
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -38,14 +41,18 @@ public class Product implements Serializable {
 
     @Column(name = "brand", length = 50)
     private String brand;
-   // private List<String> tags;
+
+    @ElementCollection
+    @CollectionTable(name = "product_tags", joinColumns = @JoinColumn(name = "product_id"))
+    @Column(name = "tags")
+    private Set<String> productTags = new HashSet<>();
 
     @Column(name = "category", length = 50)
     private String category;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_at", nullable = true)
+    @Column(name = "created_at")
     private Date createdAt;
 
 
