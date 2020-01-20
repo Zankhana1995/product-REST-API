@@ -5,11 +5,11 @@ This project is build in Spring boot 2 + H2 database + Rest API + Junit and Mock
 
 Steps :
 
-mvn clean install
+1) mvn clean install
 
 Go to the target folder
 
-java -jar Spring-Boot-REST-API-Product-0.0.1-SNAPSHOT.jar
+2) java -jar Spring-Boot-REST-API-Product-0.0.1-SNAPSHOT.jar
 
 Swagger URL : http://localhost:8080/swagger-ui.html#
 
