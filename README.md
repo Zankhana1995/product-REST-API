@@ -17,7 +17,7 @@ Verify RESTful call
 
 1) Create Product 
 
-URL: http://localhost:8080/v1/products/createProduct
+  URL: http://localhost:8080/v1/products/createProduct
 
 Request body (JSON):
 
@@ -51,7 +51,7 @@ Response body:
 
 2) Search Product by Category and createdAt from newest to oldest.
 
-URL: http://localhost:8080/v1/products/searchProduct/findByCategory?category=apparel&pageNo=0&pageSize=10&sortBy=createdAt
+  URL: http://localhost:8080/v1/products/searchProduct/findByCategory?category=apparel&pageNo=0&pageSize=10&sortBy=createdAt
 
 Response body:
 
@@ -99,7 +99,7 @@ Response body:
 
 3) Validation while creating the product 
 
-URL: http://localhost:8080/v1/products/createProduct
+  URL: http://localhost:8080/v1/products/createProduct
 
 Request body (JSON):
 
@@ -129,7 +129,7 @@ Response body:
 
 4) Validation while searching the Products
 
-URL: http://localhost:8080/v1/products/searchProduct/findByCategory?category=abc&pageNo=0&pageSize=10&sortBy=createdAt
+  URL: http://localhost:8080/v1/products/searchProduct/findByCategory?category=abc&pageNo=0&pageSize=10&sortBy=createdAt
 
 Response body:
 
