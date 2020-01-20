@@ -7,9 +7,16 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+/**
+ * The ProductSpecification Class for filtering
+ *
+ * @author Zankhana Patel
+ */
+
 public class ProductSpecification implements Specification<Product> {
 
 
+    private static final long serialVersionUID = -820785153391950856L;
     private Product filter;
 
     public ProductSpecification(Product filter) {

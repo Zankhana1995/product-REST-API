@@ -1,5 +1,6 @@
 package com.centric.api.product.service;
 
+import com.centric.api.product.exception.ResourceNotFoundException;
 import com.centric.api.product.model.Product;
 import com.centric.api.product.model.ProductSpecification;
 import com.centric.api.product.repository.ProductRepository;
@@ -11,8 +12,13 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * The ProductService Class
+ *
+ * @author Zankhana Patel
+ */
 
 @Service
 public class ProductService {
@@ -20,12 +26,11 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
-    public List<Product> getAllProducts(String category, Integer pageNo, Integer pageSize, String sortBy) {
+    public List<Product> getAllProducts(String category, Integer pageNo, Integer pageSize, String sortBy) throws ResourceNotFoundException {
 
         Product product = new Product();
         product.setCategory(category);
         Specification<Product> specification = new ProductSpecification(product);
-
         Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy).descending());
 
         Page<Product> pagedResult = productRepository.findAll(specification, paging);
@@ -33,8 +38,13 @@ public class ProductService {
         if (pagedResult.hasContent()) {
             return pagedResult.getContent();
         } else {
-            return new ArrayList<Product>();
+            throw new ResourceNotFoundException("Products not found");
         }
+    }
+
+    public Product saveProduct(Product product) {
+
+        return productRepository.save(product);
     }
 
 }

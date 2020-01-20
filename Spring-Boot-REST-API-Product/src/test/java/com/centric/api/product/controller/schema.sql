@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS PRODUCT;
+
+CREATE TABLE PRODUCT (
+
+  id VARCHAR(255) PRIMARY KEY,
+  name VARCHAR(30),
+  desc VARCHAR(100) ,
+  brand VARCHAR(30) ,
+  category VARCHAR(30),
+  created_at TIMESTAMP
+
+);
